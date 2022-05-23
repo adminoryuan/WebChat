@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option java_package="com.example.webchat.Entity";
+
+message CallMessage {
+
+    string token=1;
+    
+    string target=2;
+
+    string thenuser=3;
+
+    bytes bodys=4;
+
+    bool isMass=5;//是否群发
+
+}
+message response {
+
+    string statue=1;
+    
+    bool Sucess=2;
+
+
+}
+service  CallIm {
+
+    rpc CallImServer (CallMessage) returns (Response);
+}
