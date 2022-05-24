@@ -23,6 +23,7 @@ public class HandleRequest {
         if (type.equals("POST")){
             return postMap.get(url);
         }
+
         return getMaps.get(url);
     }
 
@@ -44,7 +45,7 @@ public class HandleRequest {
                     if (method.isAnnotationPresent(GetMapper.class)){
                         GetMapper annotation1 = method.getAnnotation(GetMapper.class);
                         getReqFunc getReqFunc = new getReqFunc();
-                        getReqFunc.intstanc=CtlClass;
+                        getReqFunc.intstanc=CtlClass.getDeclaredConstructor().newInstance();
                         getReqFunc.method=method;
                         //getReqFunc.parameterNames=method.getParameters();
 

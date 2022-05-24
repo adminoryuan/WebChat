@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/hello")
+@WebServlet("/index")
 public class DispServelt extends HttpServlet {
 
 
@@ -39,7 +39,7 @@ public class DispServelt extends HttpServlet {
 
         reqFunc.invoke(resp,req);
 
-        super.service(req, resp);
+       // super.service(req, resp);
 
     }
 

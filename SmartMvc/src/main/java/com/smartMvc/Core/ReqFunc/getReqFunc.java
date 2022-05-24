@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class getReqFunc implements iFunc {
 
-   public Class intstanc;
+   public Object intstanc;
 
    public Method method;
 
@@ -16,7 +16,7 @@ public class getReqFunc implements iFunc {
 
         try {
             //调用一下方法
-            ViewAndModel invoke1 =(ViewAndModel) method.invoke(response, request);
+            ViewAndModel invoke1 =(ViewAndModel) method.invoke(intstanc);
 
             Map<String, Object> model = invoke1.getModel();
 
@@ -25,7 +25,9 @@ public class getReqFunc implements iFunc {
             }
 
             //完成视图映射
-            request.getRequestDispatcher(invoke1.getView()).forward(request,response);
+
+           // response.getWriter().write("hello");
+            request.getRequestDispatcher("WEB-INF/index.jsp").forward(request,response);
 
         } catch (Exception e) {
             e.printStackTrace();
