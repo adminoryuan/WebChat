@@ -13,7 +13,7 @@ public class ZookeeperServer {
     final  String ZookServerAddr="0.0.0.0";
     final int port=2181;
 
-    final String CurrNodeName="Node1";
+    final String CurrNodeName="Node2";
     final String CurrNodeVal="127.0.0.1:9000";
 
     private ZooKeeper zooKeeper;
