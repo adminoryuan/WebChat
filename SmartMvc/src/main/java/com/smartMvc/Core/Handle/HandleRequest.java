@@ -20,23 +20,22 @@ public class HandleRequest {
     private Map<String, PostReqFunc> postMap=new HashMap<>();
 
     public iFunc getReqFunc(String url,String type){
-        if (type.equals("Post")){
+        if (type.equals("POST")){
             return postMap.get(url);
         }
         return getMaps.get(url);
     }
 
-    public void Load(String cla) throws ClassNotFoundException {
+    public void Load(Class cla) throws ClassNotFoundException {
         String Mainpath="com.smartMvc.Main";
         Class<?> aClass = Class.forName(Mainpath);
         try {
-            Object o = aClass.newInstance();
-
             if (aClass.isAnnotationPresent(ScanController.class)){
                 ScanController annotation = aClass.getAnnotation(ScanController.class);
 
                 //获取Controller位置
                 String path= annotation.path();
+
 
                 Class<?> CtlClass = Class.forName(path);
 
@@ -62,10 +61,8 @@ public class HandleRequest {
                 }
             }
 
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
+        } catch (Exception e){
+
         }
 
     }
