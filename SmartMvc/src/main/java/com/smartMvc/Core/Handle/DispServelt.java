@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/index")
+@WebServlet("/*")
 public class DispServelt extends HttpServlet {
 
 
@@ -32,8 +32,7 @@ public class DispServelt extends HttpServlet {
         String requestURI = req.getRequestURI();
 
         String method = req.getMethod();
-        System.out.printf(requestURI);
-        System.out.printf(method);
+
 
         iFunc reqFunc = handleRequest.getReqFunc(requestURI, method);
 

@@ -26,8 +26,8 @@ public class getReqFunc implements iFunc {
 
             //完成视图映射
 
-           // response.getWriter().write("hello");
-            request.getRequestDispatcher("WEB-INF/index.jsp").forward(request,response);
+           //response.getWriter().write("hello");
+            request.getRequestDispatcher(invoke1.getView()).forward(request,response);
 
         } catch (Exception e) {
             e.printStackTrace();
